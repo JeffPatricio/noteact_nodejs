@@ -18,6 +18,7 @@ routes.post('/users', UserController.create);
 routes.post('/sessions', SessionController.create);
 
 routes.use(authMiddleware);
+routes.get('/sessions', SessionController.read);
 routes.get('/users', UserController.read);
 routes.put('/users', UserController.update);
 routes.post('/notes', NoteController.create);

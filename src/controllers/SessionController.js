@@ -50,5 +50,29 @@ module.exports = {
       auth
     });
 
+  },
+
+  read: async (req, res) => {
+
+    const { userId } = req;
+
+    if (isEmpty(userId)) return res.json({
+      success: false,
+      message: 'Acesso não autorizado, por favor faça login novamente',
+      requireSignIn: true
+    });
+
+    const user = await database('users').where('id', userId).first();
+
+    if (!user) return res.json({
+      success: false,
+      message: 'Acesso não autorizado, por favor faça login novamente',
+      requireSignIn: true
+    });
+
+    return res.json({
+      success: true,
+      message: 'OK'
+    });
   }
 }
