@@ -126,3 +126,19 @@ Saída:
 - message: mensagem informativa da operação
 
 ============================================================
+
+# GET (/notes/:id) (JSON)
+* visualizar anotações
+
+Entrada (URL):
+- id (*): id da anotação
+
+Entrada (headers):
+- Authorization (*): token de acesso do usuário
+
+Saída:
+- success: informa se a operação ocorreu com sucesso
+- message: mensagem informativa da operação
+- note : dados da anotação
+
+============================================================
