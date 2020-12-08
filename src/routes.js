@@ -25,6 +25,7 @@ routes.post('/notes', NoteController.create);
 routes.get('/notes', NoteController.index);
 routes.put('/notes', NoteController.update);
 routes.delete('/notes/:id', NoteController.delete);
+routes.get('/notes/:id', NoteController.read);
 
 
 routes.use((error, req, res, next) => {

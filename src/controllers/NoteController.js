@@ -114,5 +114,28 @@ module.exports = {
       success: false,
       message: 'Não foi possível encontrar a anotação'
     });
+  },
+
+  read: async (req, res) => {
+
+    const { userId } = req;
+    const { id } = req.params;
+
+    const note = await connection('notes')
+      .where({ id, userId })
+      .select(['*'])
+      .first();
+
+    if (note) {
+      return res.json({
+        success: true,
+        message: 'OK',
+        note
+      });
+    }
+    return res.json({
+      success: false,
+      message: 'Não foi possível encontrar a anotação'
+    });
   }
 }
